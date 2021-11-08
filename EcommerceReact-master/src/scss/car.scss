@@ -1,0 +1,74 @@
+.MuiAlert-standardWarning {
+    width: 100% !important;
+    background: rgb(206, 89, 54) !important;
+    color: white !important;;
+}
+.MuiGrid-grid-lg-12 .MuiButton-containedSecondary {
+    background: #2E3650 !important;
+}
+
+
+   
+    .MuiGrid-grid-xs-3 .MuiTypography-displayBlock {
+        
+        font-size: 13px !important;
+        font-family: Titillium Web;
+        font-style: normal;
+        font-weight: bold;
+    }
+.formularioAuto{
+    .cardForm{
+        margin-top: 7% !important;
+        padding: 3% !important;
+        background-color: rgb(255, 255, 255) !important;
+        align-items: center !important;
+    }
+
+    .tituloForm{
+        font-family: DM Sans !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-size: 46px !important;
+        line-height: 20px !important;
+        text-align: center;
+        letter-spacing: 0.25px !important;   
+        color:#2F4449!important;
+    }
+
+    .label{
+        font-family:  DM Sans !important;
+        font-style: normal  !important;
+        font-weight: 600  !important;
+        font-size: 10px  !important;
+        line-height: 16px  !important;
+        letter-spacing: 1.5px  !important;
+        text-transform: uppercase  !important;
+        color: #414141  !important;
+    }
+    .gridItem{
+        margin-top: 10px !important;
+    }
+
+
+    .btnCancelar{
+        background-color: #F5DE96 !important; 
+        text-align: center !important;
+        color: rgb(252, 252, 252) !important;
+        align-items: center !important;
+        width: 215px !important;
+    }
+    .btnAceptar{
+        background-color : #C0D0C3!important; 
+        border-radius: 4px !important;
+        border-radius: 4px !important;
+        width: 215px !important;
+        color: white !important;
+        text-align: center !important;
+    }
+    .iconoLogin{
+        color:#FEB885 !important;
+        font-size: 36px !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+}

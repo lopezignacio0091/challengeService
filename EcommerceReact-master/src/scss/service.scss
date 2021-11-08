@@ -1,0 +1,16 @@
+.card{  
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.botonFlotante{
+    display:scroll !important;
+    position:fixed !important;
+    bottom:320px !important;
+    right:0px !important;
+    margin-right: 20px !important;
+    background:#2E4347  !important;
+    color: #FFB884 !important;
+}
