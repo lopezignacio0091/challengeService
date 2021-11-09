@@ -1,10 +1,8 @@
 import { Alert, Grid, Button } from '@mui/material';
-import {abrirFormularioAuto} from '../../../actions/CarAction';
 import React, { Fragment } from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import CarItem from './ServiceItem';
-import Fab from '@mui/material/Fab';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+
 const MovieList = () => {
     const dispatch = useDispatch();
     //const { movies} = useSelector(state => state.MoviesReducer);
@@ -25,10 +23,7 @@ const MovieList = () => {
                     </Grid>
                 ))}
             </Grid>  
-            <Fab variant="extended" className='botonFlotante' onClick={() => {dispatch(abrirFormularioAuto(true))}}>
-                <DirectionsCarIcon sx={{ mr: 1 }} />
-                Register Car
-            </Fab>
+           
         </Fragment>
     )
 }

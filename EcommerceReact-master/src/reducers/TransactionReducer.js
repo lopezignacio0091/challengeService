@@ -25,7 +25,8 @@ const initialState = {
     total: 500,
     valorServicio: 0,
     compraOk: false,
-    viewTransaccion: {}
+    viewTransaccion: {},
+    viewIdOperacion:{}
 };
 
 export default (state = initialState, action) => {
@@ -52,7 +53,8 @@ export default (state = initialState, action) => {
                 valorServicio: 0,
                 compraOk: false,
                 viewTransaccion: {},
-                propietario:{}
+                propietario:{},
+                viewIdOperacion:''
             };
         case GET_TRANSACTION:
             return {
@@ -85,7 +87,9 @@ export default (state = initialState, action) => {
         case COMPRAR:
             return {
                 ...state,
-                compraOk: true
+                compraOk: true,
+                transacciones:[...state.transacciones,action.payload],
+                viewIdOperacion:action.payload._id
             };
 
         default:

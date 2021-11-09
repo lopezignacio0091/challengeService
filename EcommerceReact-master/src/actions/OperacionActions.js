@@ -1,13 +1,13 @@
-import {VIEW_OPERACION} from './types';
+import {VIEW_OPERACION,SET_LOADING,SET_ERROR} from './types';
 
 import TransctionService from '../service/transactionService';
 
 export const viewTransaction = data => async dispatch => {
     try {
-            const data = await TransctionService.getById(data);
+            const dataView = await TransctionService.getById(data);
             dispatch({
                 type: VIEW_OPERACION,
-                payload: data
+                payload: dataView.data
             });
     }
     catch (error) {
@@ -16,4 +16,10 @@ export const viewTransaction = data => async dispatch => {
             payload: error
         });
     }
+}
+
+export const setLoading = () => dispatch=> {
+    dispatch({
+        type: SET_LOADING,
+    });
 }

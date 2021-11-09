@@ -1,22 +1,25 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {abrirFormularioAuto} from '../../../actions/CarAction';
 import MUIDataTable from "mui-datatables";
-import { Grid, Box,Tooltip,IconButton } from '@mui/material';
+import { Grid, Box, Tooltip, IconButton } from '@mui/material';
 import { ThemeProvider } from "@mui/styles";
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import NuevoService from './CustomToolbar';
 import _ from 'lodash';
 import { useHistory } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import moment from 'moment';
+import Fab from '@mui/material/Fab';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import DialogUtils from '../utils/DialogUtils';
+import FormularioCar from './Formulario';
 
 const TablaTransaction = () => {
-
+    const dispatch = useDispatch();
     const history = useHistory();
-
     let theme = createTheme();
     theme = responsiveFontSizes(theme);
-    const { transacciones, usuarios, servicios, autos } = useSelector((state) => state.TransactionReducer);
+    const { usuarios, autos,openFormulario } = useSelector((state) => state.CarReducer);
 
 
     const options = {
@@ -29,16 +32,13 @@ const TablaTransaction = () => {
         viewColumns: false,
         pagination: true,
         enableNestedDataAccess: '.',
-        customToolbar: () => {
-            return <NuevoService />;
-        },
     };
 
 
     const columns = [
         {
-            name: "date",
-            label: "Fecha",
+            name: "year",
+            label: "Año",
             options: {
                 filter: true,
                 sort: true,
@@ -56,30 +56,19 @@ const TablaTransaction = () => {
             }
         },
         {
-            name: "service",
-            label: "Tipo Servicio",
+            name: "type",
+            label: "Tipo",
             options: {
                 filter: true,
                 sort: true,
-                customBodyRender: (value) => _.filter(servicios, (elem) => elem._id === value)[0].type,
             }
         },
         {
-            name: "car",
-            label: "Auto",
+            name: "colour",
+            label: "Color",
             options: {
                 filter: true,
                 sort: true,
-                customBodyRender: (value) => _.filter(autos, (elem) => elem._id === value)[0].name,
-            }
-        },
-        {
-            name: "total",
-            label: "Total",
-            options: {
-                filter: true,
-                sort: true,
-                customBodyRender: (value) => `$ ${value}`,
             }
         },
         {
@@ -90,8 +79,8 @@ const TablaTransaction = () => {
                 sort: false,
                 customBodyRender: (value) => (
                     <>
-                        <Tooltip title="View Transaccion">
-                            <IconButton onClick={()=>history.push(`/app/common/Viewtransaction/${value}`)}>
+                        <Tooltip title="Ver auto">
+                            <IconButton onClick={() => alert("Ver auto")}>
                                 <RemoveRedEyeIcon />
                             </IconButton>
                         </Tooltip>
@@ -109,12 +98,19 @@ const TablaTransaction = () => {
                 <ThemeProvider theme={theme}>
                     <MUIDataTable
                         className="tablaTransaccion"
-                        data={transacciones}
+                        data={autos}
                         columns={columns}
                         options={options}
-                        title={"Transacciones"}
+                        title={"Autos"}
                     />
                 </ThemeProvider>
+            </Grid>
+            <Fab variant="extended" className='botonFlotante' onClick={() => { dispatch(abrirFormularioAuto(true)) }}>
+                <DirectionsCarIcon sx={{ mr: 1 }} />
+                Register Car
+            </Fab>
+            <Grid>
+                <DialogUtils open={openFormulario} cerrar={() => { dispatch(abrirFormularioAuto(false)) }} contenido={<FormularioCar />} />
             </Grid>
         </Grid>
     );

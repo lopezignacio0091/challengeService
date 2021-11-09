@@ -5,7 +5,8 @@ import {
     SET_PROPIETARIO,
     SET_SERVICIO,
     SET_AUTO,
-    COMPRAR
+    COMPRAR,
+    CLEAR
 } from './types';
 import TransctionService from '../service/transactionService';
 import ServicesService from '../service/servicesService';
@@ -83,7 +84,7 @@ export const comprar = data => async dispatch => {
         const dataPost = await TransctionService.comprar(dataComprar);
         dispatch({
             type: COMPRAR,
-            payload: dataPost
+            payload: dataPost.data
         });
     } catch (error) {
         dispatch({
@@ -92,3 +93,11 @@ export const comprar = data => async dispatch => {
         });
     }
 }
+
+
+export const clear = () => dispatch=> {
+    dispatch({
+        type: CLEAR,
+    });
+}
+

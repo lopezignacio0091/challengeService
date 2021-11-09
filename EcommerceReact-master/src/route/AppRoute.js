@@ -7,6 +7,7 @@ import TransactionPage from '../components/pages/TransactionPage';
 import ServicePage from '../components/pages/ServicePage';
 import NewTransaction from '../components/pages/NewTransaccionPage';
 import OperacionPage from '../components/pages/OperacionContainerPage';
+import Cars from '../components/pages/CarPage';
 import { useSelector } from 'react-redux';
 
 const AppRoute = () => {
@@ -17,8 +18,9 @@ const AppRoute = () => {
             <Switch>
                 <ProtectedRoute path='/app/common/Service' component={ServicePage} isAuth={isAuth} />
                 <ProtectedRoute path='/app/common/Transactions' component={TransactionPage} isAuth={isAuth} />
+                <ProtectedRoute path='/app/common/Cars' component={Cars} isAuth={isAuth} />
                 <ProtectedRoute path='/app/common/NewTransaction' component={NewTransaction} isAuth={isAuth} />
-                <ProtectedRoute path='/app/common/Viewtransaction' component={OperacionPage} isAuth={isAuth} />
+                <Route path='/app/common/Viewtransaction/:id' component={OperacionPage} isAuth={isAuth} />
             </Switch>
         </>
     )

@@ -1,11 +1,10 @@
 import * as  React from 'react';
-import Alert from '@material-ui/lab/Alert';
-import '../../../scss/utils.scss';
+import Alert from '@mui/material/Alert';
 export default function AlertUtils(props) {
     
     return (
         <>
-             <Alert severity={props.TYPE} className={props.CLASS}>{props.LABEL}</Alert>
+             <Alert severity={props.TYPE}>{props.LABEL}</Alert>
         </>
     )
 }

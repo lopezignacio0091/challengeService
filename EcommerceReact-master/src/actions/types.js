@@ -20,9 +20,11 @@ export const SET_SERVICIO ="SET_SERVICIO";
 export const SET_AUTO ="SET_AUTO";
 export const COMPRAR="COMPRAR";
 export const CLEAR="CLEAR";
+
 //CAR ACTION 
 export const STATUS_FORMULARIO_AUTO = "STATUS_FORMULARIO_AUTO";
-
+export const GET_CARS = 'GET_CARS';
+export const ERROR_CARS = "ERROR_CARS";
 
 // OPERACION ACTION 
 

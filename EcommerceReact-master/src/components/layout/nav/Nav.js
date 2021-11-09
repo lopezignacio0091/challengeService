@@ -30,12 +30,17 @@ const ButtonAppBar = () => {
                             Services
                         </Button>
                     </Typography>
-                    <Typography component="div" sx={{ flexGrow: 1 }}>
+                    <Typography component="div">
                     <Button  onClick={()=>history.push("/app/common/Transactions")}>
                             Transacciones
                         </Button>
                     </Typography>
-                    <Typography justifyContent="flex-end">
+                    <Typography component="div" sx={{ flexGrow: 1 }}>
+                    <Button  onClick={()=>history.push("/app/common/Cars")}>
+                            Autos
+                        </Button>
+                    </Typography>
+                    <Typography>
                     <Tooltip title="Logout">
                         <IconButton
                             size="large"

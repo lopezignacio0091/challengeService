@@ -1,12 +1,11 @@
 
 import { VIEW_OPERACION ,SET_LOADING} from "../actions/types";
 const initialState = {
-    loading: false,
+    loading: true,
     viewOperacion: {},
     error: false,
     mensajeError: ""
 };
-
 export default (state = initialState, action) => {
     switch (action.type) {
 
