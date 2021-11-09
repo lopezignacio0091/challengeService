@@ -18,7 +18,7 @@ const TransactionPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (compraOk) history.push(`/app/common/Viewtransaction/${viewIdOperacion}`);
+   
     if (loading) return <Progress />
 
 

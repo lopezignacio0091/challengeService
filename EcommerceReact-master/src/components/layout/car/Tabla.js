@@ -1,25 +1,26 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {abrirFormularioAuto} from '../../../actions/CarAction';
+import { abrirFormularioAuto,editCar,cerrarMensaje,eliminarAuto } from '../../../actions/CarAction';
 import MUIDataTable from "mui-datatables";
 import { Grid, Box, Tooltip, IconButton } from '@mui/material';
 import { ThemeProvider } from "@mui/styles";
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import _ from 'lodash';
 import { useHistory } from 'react-router-dom';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import EditIcon from '@mui/icons-material/Edit';
 import moment from 'moment';
 import Fab from '@mui/material/Fab';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import DialogUtils from '../utils/DialogUtils';
 import FormularioCar from './Formulario';
-
-const TablaTransaction = () => {
+import Mensaje from '../utils/Mensaje'
+import DeleteIcon from '@mui/icons-material/Delete';
+const TablaCars = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let theme = createTheme();
     theme = responsiveFontSizes(theme);
-    const { usuarios, autos,openFormulario } = useSelector((state) => state.CarReducer);
+    const { usuarios, autos, openFormulario,abrirMensaje,mensaje } = useSelector((state) => state.CarReducer);
 
 
     const options = {
@@ -79,9 +80,26 @@ const TablaTransaction = () => {
                 sort: false,
                 customBodyRender: (value) => (
                     <>
-                        <Tooltip title="Ver auto">
-                            <IconButton onClick={() => alert("Ver auto")}>
-                                <RemoveRedEyeIcon />
+                        <Tooltip title="Editar auto">
+                            <IconButton onClick={() => {dispatch(editCar(value))}}>
+                                <EditIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </>
+                ),
+            }
+        },
+        {
+            name: "_id",
+            label: " ",
+            options: {
+                filter: false,
+                sort: false,
+                customBodyRender: (value) => (
+                    <>
+                        <Tooltip title="Eliminar auto">
+                            <IconButton onClick={() => {dispatch(eliminarAuto(value))}}>
+                                <DeleteIcon />
                             </IconButton>
                         </Tooltip>
                     </>
@@ -94,6 +112,9 @@ const TablaTransaction = () => {
 
     return (
         <Grid container>
+             <Grid>
+                <Mensaje open={abrirMensaje} cerrarMsj={() => { dispatch(cerrarMensaje()) }} mensaje={mensaje} />
+            </Grid>
             <Grid item xs={12}>
                 <ThemeProvider theme={theme}>
                     <MUIDataTable
@@ -116,4 +137,4 @@ const TablaTransaction = () => {
     );
 }
 
-export default TablaTransaction;
+export default TablaCars;

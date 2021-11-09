@@ -25,6 +25,11 @@ export const CLEAR="CLEAR";
 export const STATUS_FORMULARIO_AUTO = "STATUS_FORMULARIO_AUTO";
 export const GET_CARS = 'GET_CARS';
 export const ERROR_CARS = "ERROR_CARS";
+export const SELECT_EDIT_CAR ="SELECT_EDIT_CAR";
+export const CREATE_CAR = "CREATE_CAR";
+export const CLOSE_MENSAJE ="CLOSE_MENSAJE";
+export const DELETE_CAR ="DELETE_CAR";
+
 
 // OPERACION ACTION 
 

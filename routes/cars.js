@@ -28,10 +28,10 @@ router.post('/', [auth, [check('name', 'name is required').not().isEmpty(),]], a
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, type, patent, colour, year,user } = req.body;
+    const { name, type, patent, colour, year,user,brand } = req.body;
 
     try {
-        const newCar = new Car({ name, type, patent, colour, year,user });
+        const newCar = new Car({ name, type, patent, colour, year,user,brand });
 
         //guardamos el car en la base
         const car = await newCar.save();
@@ -88,9 +88,7 @@ router.delete('/:id', auth, async (req, res) => {
         if (!car) return res.status(400).json({ msg: 'Car not found' });
 
         //WARNING: asegurarse que el uyser tenga car
-        if (car.user.toString() !== req.user.id) {
-            return res.status(401).json({ msg: 'not authorized' });
-        }
+       
 
         //INFO: buscamos el car por id y le seteamos carfields si no existe lo creamos
 

@@ -12,7 +12,7 @@ import TransctionService from '../service/transactionService';
 import ServicesService from '../service/servicesService';
 import UserService from '../service/userService';
 import CarsService from '../service/carService';
-
+import {useHistory} from 'react-router-dom';
 export const setLoading = () => {
     return {
         type: SET_LOADING
@@ -74,6 +74,7 @@ export const setAuto = (name, value) => dispatch => {
 
 export const comprar = data => async dispatch => {
 
+    const history = useHistory();
     try {
         const dataComprar = {
             'total': data.total,
@@ -82,6 +83,7 @@ export const comprar = data => async dispatch => {
             'car': data.autoSelect._id
         }
         const dataPost = await TransctionService.comprar(dataComprar);
+        history.push(`/app/common/Viewtransaction/${dataPost.data._id}`)
         dispatch({
             type: COMPRAR,
             payload: dataPost.data

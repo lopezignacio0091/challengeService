@@ -15,8 +15,6 @@ const MyTextField = (props) => {
           variant="outlined"
          
       />
-      {meta.error && meta.touched ? (
-        <div>{meta.error}</div>) : null}
     </>
     );
   };

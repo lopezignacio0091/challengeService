@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import { Button } from '@material-ui/core';
-import '../../../scss/utils.scss';
+import Snackbar from '@mui/material/Snackbar';
+import { Button } from '@mui/material';
+import '../../../scss/utils.scss'
 
 export default function Mensaje({ open, cerrarMsj, mensaje }) {
 
@@ -16,7 +16,7 @@ export default function Mensaje({ open, cerrarMsj, mensaje }) {
     <Fragment>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        className="mensajeOk"
+        className='mensaje'
         open={open}
         onClose={cerrarMsj}
         message={mensaje}

@@ -10,7 +10,6 @@ import '../../scss/service.scss'
 
 const CarPage = () => {
     const dispatch = useDispatch();
-    const { openFormulario } = useSelector((state)=> state.CarReducer);
     return (
         <Box
             sx={{
@@ -24,9 +23,7 @@ const CarPage = () => {
                     <ServiceList/>
                 </Grid>
             </Grid>
-            <Grid>
-                <DialogUtils open={openFormulario} cerrar={()=>{dispatch(abrirFormularioAuto(false))}} contenido={<FormularioAuto/>} />
-            </Grid>
+          
         </Box>
     )}
 export default CarPage

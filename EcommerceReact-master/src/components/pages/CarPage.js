@@ -6,8 +6,8 @@ import { getAutos} from '../../actions/CarAction';
 import TablaAutos from '../layout/car/Tabla';
 import Progress from '../layout/progress/Progress';
 import AlertUtils from '../layout/utils/AlertUtils';
-import FormularioAuto from '../layout/car/Formulario';
-import DialogUtils from '../layout/utils/DialogUtils';
+
+
 
 const CarPage = () => {
 
@@ -17,7 +17,7 @@ const CarPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const { loading, error, mensajeError } = useSelector((state) => state.TransactionReducer);
+    const { loading, error, mensajeError } = useSelector((state) => state.CarReducer);
     if (loading) return <Progress />
     if (error) return <AlertUtils TYPE="error" LABEL={mensajeError} />
 

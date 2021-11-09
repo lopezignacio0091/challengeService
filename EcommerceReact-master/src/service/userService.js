@@ -8,8 +8,14 @@ const getAll = () => {
     axios.defaults.headers.common['x-auth-token'] = JWT.getTokken();
     return axios.get(`${devUrl}/api/${seccion}`);
   };
+
+  const create = data => {
+    axios.defaults.headers.common['x-auth-token'] = JWT.getTokken();
+    return axios.post(`${devUrl}/api/${seccion}/create`,data);
+  };
 const UserService = {
-    getAll
+    getAll,
+    create
 };
 
 export default UserService;
